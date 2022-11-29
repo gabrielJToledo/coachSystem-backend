@@ -1,5 +1,6 @@
 const user = require('../api/user')
 const auth = require('../api/auth')
+const goal = require('../api/goal')
 
 module.exports = app => {
     app.route('/signup')
@@ -12,4 +13,10 @@ module.exports = app => {
 
     app.route('/users')
         .get(user.getUsers)
+
+    app.route('/goals')
+        .post(goal.saveGoal)
+
+    app.route('/goals/:id')
+        .get(goal.getGoal)
 }
